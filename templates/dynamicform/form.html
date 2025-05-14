@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Dynamic Form</title>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    #inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      padding: 5px;
+      font-size: 14px;
+      width: 150px; /* ограничение ширины */
+    }
+    button {
+      margin-right: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Добавить имена</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div id="inputs">
+      <input type="text" name="name" placeholder="Имя"/>
+    </div>
+    <button type="button" id="add">Добавить ещё</button>
+    <button type="submit">Сохранить</button>
+  </form>
+
+  <script>
+    let count = 1;
+    $('#add').on('click', function() {
+      $('#inputs').append(
+        `<input type="text" name="name${count}" placeholder="Имя ${count}"/>`
+      );
+      count++;
+    });
+  </script>
+</body>
+</html>
+

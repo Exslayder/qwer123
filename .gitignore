@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Виртуальное окружение
+django_test/
+
+# Логи
+*.log
+*.sqlite3
+
+# Собранные файлы и локальные настройки
+*.pot
+local_settings.py
+
+# IDE
+.vscode/
+.idea/
+
+# Системные
+.DS_Store
+Thumbs.db

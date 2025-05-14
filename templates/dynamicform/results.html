@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Результаты</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    li {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Результаты</h1>
+  <ul>
+    {% for sub in subs %}
+      <li>
+        <strong>{{ sub.created_at|date:"Y-m-d H:i" }}:</strong>
+        <pre>{{ sub.data|safe|json_script:"js_data" }}</pre>
+        <pre>{{ sub.data }}</pre>
+      </li>
+    {% empty %}
+      <li>Нет записей.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'form' %}">← Вернуться к форме</a>
+</body>
+</html>
