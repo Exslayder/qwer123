@@ -8,7 +8,7 @@
 ### 1. Клонировать репозиторий:
 ```bash
 git clone https://github.com/Exslayder/qwer123.git
-cd cd qwer123
+cd qwer123
 ```
 
 ### 2. Создать виртуальное окружение:
